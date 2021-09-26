@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Chess</title>
+    <link rel="stylesheet" href="./chess.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="chess_board">
+        <div id="promotion_selector" style="display: none;">
+            <div id="promotion_options" style="display: none;"></div>
+        </div>
+        <div id="pieces_layer" ></div>
+        <div id="valid_positions"></div>
+        <svg id="board_layer" width="800" height="800"><rect x="0" y="0" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="0" y="100" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="0" y="200" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="0" y="300" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="0" y="400" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="0" y="500" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="0" y="600" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="0" y="700" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="100" y="0" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="100" y="100" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="100" y="200" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="100" y="300" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="100" y="400" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="100" y="500" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="100" y="600" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="100" y="700" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="200" y="0" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="200" y="100" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="200" y="200" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="200" y="300" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="200" y="400" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="200" y="500" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="200" y="600" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="200" y="700" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="300" y="0" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="300" y="100" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="300" y="200" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="300" y="300" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="300" y="400" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="300" y="500" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="300" y="600" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="300" y="700" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="400" y="0" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="400" y="100" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="400" y="200" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="400" y="300" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="400" y="400" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="400" y="500" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="400" y="600" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="400" y="700" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="500" y="0" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="500" y="100" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="500" y="200" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="500" y="300" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="500" y="400" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="500" y="500" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="500" y="600" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="500" y="700" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="600" y="0" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="600" y="100" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="600" y="200" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="600" y="300" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="600" y="400" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="600" y="500" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="600" y="600" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="600" y="700" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="700" y="0" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="700" y="100" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="700" y="200" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="700" y="300" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="700" y="400" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="700" y="500" width="100" height="100" fill="rgb(238,238,210)"></rect><rect x="700" y="600" width="100" height="100" fill="rgb(118,150,86)"></rect><rect x="700" y="700" width="100" height="100" fill="rgb(238,238,210)"></rect></svg>
+    </div>
+    <div id="move_wrapper">
+        <table id="move_list">
+            <tr>
+                <th>Move Num</th>
+                <th>White's Move</th>
+                <th>Black's Move</th>
+            </tr>
+        </table>
+    </div>
+    <div id="options">
+        <h3 id="opening" class="opening">Starting Position</h3>
+        <button onclick="flipBoard = !flipBoard; drawBoard(); valid_positions.empty()">Flip Board</button>
+        <button id="resume_game" onclick="drawCurrentBoard = true; drawBoard(); $('#resume_game').hide()" style="display: none;">Resume</button>
+        <button onclick="download('game.pgn', pgnDownload)" class="download_pgn">Download PGN</button>
+    </div>
+</div>
+<script src="./openings.js"></script>
+<script src="./chess.js"></script>
+</body>
+</html>

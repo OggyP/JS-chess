@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* #131313 */
+
+#chess_board {
+    height: 800px;
+    width: 800px;
+    overflow: hidden;
+}
+
+#pieces_layer {
+    position: relative;
+}
+
+#valid_positions {
+    position: relative;
+}
+
+#promotion_selector {
+    position: absolute;
+}
+
+tr, td, th {
+    height: 20px;
+}
+
+#move_list, tr, td, th {
+    border-collapse: collapse;
+    border: 1px solid black;
+    font-size: larger;
+    padding: 5px 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#move_list {
+	max-height: 800px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#wrapper {
+    display: flex;
+}
+
+th {
+    font-size: x-large;
+}
+
+.chess_piece {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+.chess_piece_select {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    z-index: 99 !important;
+    background-color: whitesmoke;
+    border: 3px solid black;
+}
+
+.valid_position {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+.opening {
+	font-family: 'Roboto', sans-serif;
+}
+
+.download_pgn {}
+	
+
+button {
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    font-size: x-large;
+    margin: 10px;
+    display: block;
+}
+	
+textarea {
+    width: 700px;
+    height: 300px;
+}
+
+h3 {
+    margin: 30px 50px;
+}
